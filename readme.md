@@ -146,3 +146,50 @@ If the extension does NOT match, nothing is removed:
 basename("/public/style.css", ".js");
 // -> "style.css"
 ```
+
+
+
+
+
+-------------------------------------------------------------------------------------
+
+fs = File System.
+You use it to create, read, update, delete, copy, move files & folders.
+
+  ⭐ Two styles: Async vs Sync
+🔹 Async (Non-blocking — recommended)
+
+Uses callbacks or promises.
+
+fs.readFile("text.txt", "utf8", (err, data) => {
+  if (err) return console.log(err);
+  console.log(data);
+});
+
+🔹 Sync (Blocking — stops program)
+
+Good for small scripts/testing.
+
+const data = fs.readFileSync("text.txt", "utf8");
+console.log(data);
+
+
+Prefer async in real apps.
+
+
+
+✅ Quick Summary
+
+| Action         | Method                       |
+| -------------- | ---------------------------- |
+| Create / Write | `writeFile`, `writeFileSync` |
+| Read           | `readFile`, `readFileSync`   |
+| Append         | `appendFile`                 |
+| Rename         | `rename`                     |
+| Delete         | `unlink`                     |
+| Create folder  | `mkdir`                      |
+| Read folder    | `readdir`                    |
+| Copy           | `copyFile`                   |
+| Big files      | streams                      |
+
+
